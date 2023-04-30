@@ -15,8 +15,7 @@ namespace Domain.Entities
 
         public bool isAvalible
         {
-            get
-            {
+            get{
                 if(this.InMaintenance || this.HasGuest)
                 {
                     return false;
@@ -27,9 +26,8 @@ namespace Domain.Entities
 
         public bool HasGuest
         {
-            get
-            {
-                return true
+            get{
+                return true;
             }
         }
     }

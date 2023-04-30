@@ -73,3 +73,41 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.psess
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+bin/
+obj/
+
+# NuGet Packages
+*.nuget.props
+*.nuget.targets
+packages/
+*.nupkg
+*.snupkg
+
+# MSTest Test Results
+TestResults/
+
+# Cache files
+*.cache
+*.log
+
+# Resharper files
+_ReSharper*/
+*.ReSharper*
+
+# Visual Studio Code files
+.vscode/
+
+# User-specific files
+*.sln.docstates
