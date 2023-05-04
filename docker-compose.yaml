@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    restart: always
+    environment:
+      SA_PASSWORD: "SqlServer2019!"
+      ACCEPT_EULA: "Y"
+      MSSQL_DATABASE: "hotelbooking"
+      MSSQL_USER: "admin"
+      MSSQL_PASSWORD: "SqlServer2019!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - dbdata:/var/opt/mssql/data
+      - ./dbdata:/var/opt/mssql/data
+    user: "${UID}:${GID}"
+
+volumes:
+  dbdata:
+    driver: local
