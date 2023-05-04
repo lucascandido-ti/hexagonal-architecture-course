@@ -1,12 +1,10 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Entities = Domain.Entities;
 
-namespace Data
+namespace Data.Guest
 {
-    public class GuestConfiguration: IEntityTypeConfiguration<Entities.Guest>
+    public class GuestConfiguration : IEntityTypeConfiguration<Entities.Guest>
     {
         public void Configure(EntityTypeBuilder<Entities.Guest> builder)
         {

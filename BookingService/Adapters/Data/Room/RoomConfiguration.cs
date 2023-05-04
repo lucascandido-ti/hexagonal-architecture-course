@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Entities = Domain.Entities;
 
-namespace Data
+namespace Data.Room
 {
-   
+
     public class RoomConfiguration : IEntityTypeConfiguration<Entities.Room>
     {
         public void Configure(EntityTypeBuilder<Entities.Room> builder)
