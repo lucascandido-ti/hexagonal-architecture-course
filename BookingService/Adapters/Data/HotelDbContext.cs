@@ -12,5 +12,12 @@ namespace Data
         public virtual DbSet<Entities.Room> Rooms { get; set; }
 
         public virtual DbSet<Entities.Booking> Bookings { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .ApplyConfiguration(new GuestConfiguration())
+                .ApplyConfiguration(new RoomConfiguration());
+        }
     }
 }

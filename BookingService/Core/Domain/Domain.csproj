@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="DomainEvents\" />
     <Folder Include="DomainExceptions\" />
-    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>
