@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{03536F93-31C9-4478-8B4C-CA257C67C9ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "BookingService\Core\Application\Application.csproj", "{EB02B9F3-4E99-4F77-ADEC-C86D19E110F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "BookingService\Core\Application\Application.csproj", "{EB02B9F3-4E99-4F77-ADEC-C86D19E110F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "BookingService\Core\Domain\Domain.csproj", "{8E252829-F2FC-490E-881A-257CFC54BD62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "BookingService\Core\Domain\Domain.csproj", "{8E252829-F2FC-490E-881A-257CFC54BD62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{A433FB89-BF25-43B1-B028-1AE791A3C73F}"
 EndProject
@@ -29,15 +29,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{4647776F-F309-48B8-8F2D-D26FCAC3F1CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTests", "BookingService\Tests\DomainTests\DomainTests.csproj", "{15A6E42E-4E1C-473F-BA48-3A5F2C916523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainTests", "BookingService\Tests\DomainTests\DomainTests.csproj", "{15A6E42E-4E1C-473F-BA48-3A5F2C916523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTests", "BookingService\Tests\ApplicationTests\ApplicationTests.csproj", "{95045534-6F5A-42BE-9646-71D5A0BE33EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTests", "BookingService\Tests\ApplicationTests\ApplicationTests.csproj", "{95045534-6F5A-42BE-9646-71D5A0BE33EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptersTests", "BookingService\Tests\AdaptersTests\AdaptersTests.csproj", "{8243E811-510C-4270-AA89-557D469EBB0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptersTests", "BookingService\Tests\AdaptersTests\AdaptersTests.csproj", "{8243E811-510C-4270-AA89-557D469EBB0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "BookingService\Consumers\API\API.csproj", "{98E1274D-0B2B-4936-8A77-7FCBCAE52DC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "BookingService\Consumers\API\API.csproj", "{98E1274D-0B2B-4936-8A77-7FCBCAE52DC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "BookingService\Adapters\Data\Data.csproj", "{EF94C0CC-AB98-426B-947A-7F86DFE8A2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "BookingService\Adapters\Data\Data.csproj", "{EF94C0CC-AB98-426B-947A-7F86DFE8A2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
