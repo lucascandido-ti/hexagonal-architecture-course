@@ -37,6 +37,18 @@ namespace API.Controllers
             if(res.ErrorCode == ErrorCodes.NOT_FOUND)
             {
                 return BadRequest(res);
+            }else if (res.ErrorCode == ErrorCodes.INVALID_PERSON_ID)
+            {
+                return BadRequest(res);
+            }else if (res.ErrorCode == ErrorCodes.MISSING_REQUIRED_INFORMATION)
+            {
+                return BadRequest(res);
+            }else if (res.ErrorCode == ErrorCodes.INVALID_EMAIL)
+            {
+                return BadRequest(res);
+            }else if (res.ErrorCode == ErrorCodes.COULD_NOT_STORE_DATA)
+            {
+                return BadRequest(res);
             }
 
             _logger.LogError("Response with unknown ErrorCode Returned", res);

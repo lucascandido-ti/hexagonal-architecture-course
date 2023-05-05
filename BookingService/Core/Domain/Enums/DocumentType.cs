@@ -3,7 +3,7 @@ namespace Domain.Enums
 {
     public enum DocumentType
     {
-        Passport,
-        DriveLicence
+        Passport = 1,
+        DriveLicence = 2
     }
 }
