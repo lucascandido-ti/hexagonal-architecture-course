@@ -67,5 +67,26 @@ namespace Application
             }
             
         }
+
+        public async Task<GuestResponse> GetGuest(int guestId)
+        {
+            var guest = await _guestRepository.Get(guestId);
+            
+            if(guest == null)
+            {
+                return new GuestResponse
+                {
+                    Success = false,
+                    ErrorCode = ErrorCodes.GUEST_NOT_FOUND,
+                    Message = "No guest record was found with the given Id"
+                };
+            }
+
+            return new GuestResponse
+            {
+                Success = true,
+                Data = GuestDTO.MapToDTO(guest)
+            };
+        }
     }
 }

@@ -7,7 +7,8 @@ namespace Application
         COULD_NOT_STORE_DATA,
         INVALID_PERSON_ID,
         MISSING_REQUIRED_INFORMATION,
-        INVALID_EMAIL
+        INVALID_EMAIL,
+        GUEST_NOT_FOUND
     }
     public abstract class Response
     {
