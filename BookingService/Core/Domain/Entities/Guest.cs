@@ -15,6 +15,7 @@ namespace Domain.Entities
         {
             if(
                 DocumentId == null ||
+                string.IsNullOrEmpty(DocumentId.IdNumber) ||
                 DocumentId.IdNumber.Length <= 3 ||
                 DocumentId.DocumentType == 0
               )
@@ -22,7 +23,10 @@ namespace Domain.Entities
                 throw new InvalidPersonDocumentIdException();
             }
 
-            if(Name == null || Surname == null || email == null)
+            if(
+                string.IsNullOrEmpty(Name) ||
+                string.IsNullOrEmpty(Surname) ||
+                string.IsNullOrEmpty(email))
             {
                 throw new MissingRequiredInformation();
             }
