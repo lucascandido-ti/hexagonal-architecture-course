@@ -1,5 +1,4 @@
-﻿
-namespace Domain.Enums
+﻿namespace Domain.Utils.Enums
 {
     public enum AcceptedCurrencies
     {

@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Domain.Guest.Enums
 {
     public enum Action
     {

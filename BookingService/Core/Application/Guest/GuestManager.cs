@@ -2,10 +2,10 @@
 using Application.Guest.Ports;
 using Application.Guest.Requests;
 using Application.Guest.Responses;
-using Domain.Exceptions;
-using Domain.Ports;
+using Domain.Guest.Exceptions;
+using Domain.Guest.Ports;
 
-namespace Application
+namespace Application.Guest
 {
     public class GuestManager : IGuestManager
     {
@@ -29,7 +29,7 @@ namespace Application
                     Success = true,
                 };
             }
-            catch(InvalidPersonDocumentIdException e)
+            catch (InvalidPersonDocumentIdException e)
             {
                 return new GuestResponse
                 {
@@ -65,14 +65,14 @@ namespace Application
                     Message = "There was an error when saving to DB"
                 };
             }
-            
+
         }
 
         public async Task<GuestResponse> GetGuest(int guestId)
         {
             var guest = await _guestRepository.Get(guestId);
-            
-            if(guest == null)
+
+            if (guest == null)
             {
                 return new GuestResponse
                 {
