@@ -24,6 +24,7 @@ namespace Application
         BOOKING_INVALID_PERSON_ID,
         BOOKING_MISSING_REQUIRED_INFORMATION,
         BOOKING_INVALID_EMAIL,
+        BOOKING_ROOM_CANNOT_BE_BOOKED
     }
     public abstract class Response
     {

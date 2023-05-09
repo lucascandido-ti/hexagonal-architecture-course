@@ -5,6 +5,7 @@ using Application.Booking.Responses;
 using Domain.Booking.Exceptions;
 using Domain.Booking.Ports;
 using Domain.Guest.Ports;
+using Domain.Room.Exceptions;
 using Domain.Room.Ports;
 
 namespace Application.Booking
@@ -71,6 +72,14 @@ namespace Application.Booking
                     Success = false,
                     ErrorCode = ErrorCodes.BOOKING_MISSING_REQUIRED_INFORMATION,
                     Message = "Room is a required information"
+                };
+            }catch (RoomCannotBeBookedException)
+            {
+                return new BookingResponse
+                {
+                    Success = false,
+                    ErrorCode = ErrorCodes.BOOKING_ROOM_CANNOT_BE_BOOKED,
+                    Message = "The selected Room is not avaliable"
                 };
             }
             catch (GuestRequiredException)
