@@ -1,7 +1,8 @@
 ﻿using Data.Guest;
 using Data.Room;
-using Domain.Guest.Entities;
+using Entities = Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Data.Booking;
 
 namespace Data
 {
@@ -9,17 +10,19 @@ namespace Data
     {
         public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options) { }
 
-        public virtual DbSet<Domain.Guest.Entities.Guest> Guests { get; set; }
+        public virtual DbSet<Entities.Guest> Guests { get; set; }
 
-        public virtual DbSet<Domain.Room.Entities.Room> Rooms { get; set; }
+        public virtual DbSet<Entities.Room> Rooms { get; set; }
 
-        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Entities.Booking> Bookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .ApplyConfiguration(new GuestConfiguration())
-                .ApplyConfiguration(new RoomConfiguration());
+                .ApplyConfiguration(new RoomConfiguration())
+                .ApplyConfiguration(new BookingConfiguration());
+            
         }
     }
 }

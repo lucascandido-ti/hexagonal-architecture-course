@@ -1,5 +1,5 @@
 ﻿using Domain.Utils.Enums;
-using Entities = Domain.Room.Entities;
+using Entities = Domain.Entities;
 using ValueObjects = Domain.Room.ValueObjects;
 
 namespace Application.Room.DTO

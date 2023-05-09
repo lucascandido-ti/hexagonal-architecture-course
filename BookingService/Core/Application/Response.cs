@@ -17,6 +17,13 @@ namespace Application
         ROOM_INVALID_PERSON_ID,
         ROOM_MISSING_REQUIRED_INFORMATION,
         ROOM_INVALID_EMAIL,
+
+        // Booking
+        BOOKING_NOT_FOUND = 200,
+        BOOKING_COULD_NOT_STORE_DATA,
+        BOOKING_INVALID_PERSON_ID,
+        BOOKING_MISSING_REQUIRED_INFORMATION,
+        BOOKING_INVALID_EMAIL,
     }
     public abstract class Response
     {

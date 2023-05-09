@@ -3,7 +3,7 @@ using Domain.Guest.Exceptions;
 using Domain.Guest.Ports;
 using Domain.Guest.ValueObjects;
 
-namespace Domain.Guest.Entities
+namespace Domain.Entities
 {
     public class Guest
     {
@@ -36,6 +36,12 @@ namespace Domain.Guest.Entities
             {
                 throw new InvalidEmailException();
             }
+        }
+
+        public bool IsValid()
+        {
+            this.ValidateState();
+            return true;
         }
 
         public async Task Save(IGuestRepository guestRepository)

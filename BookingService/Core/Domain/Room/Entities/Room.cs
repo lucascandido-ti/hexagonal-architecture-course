@@ -1,10 +1,8 @@
-﻿
-using Domain.Guest.Entities;
-using Domain.Room.Exceptions;
+﻿using Domain.Room.Exceptions;
 using Domain.Room.Ports;
 using Domain.Room.ValueObjects;
 
-namespace Domain.Room.Entities
+namespace Domain.Entities
 {
     public class Room
     {
@@ -32,6 +30,12 @@ namespace Domain.Room.Entities
             {
                 return true;
             }
+        }
+
+        public bool IsValid()
+        {
+            this.ValidateState();
+            return true;
         }
 
         private void ValidateState()

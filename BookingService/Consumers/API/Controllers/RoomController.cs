@@ -10,11 +10,11 @@ namespace API.Controllers
     [Route("[controller]")]
     public class RoomController: ControllerBase
     {
-        private readonly ILogger<GuestController> _logger;
+        private readonly ILogger<RoomController> _logger;
         private readonly IRoomManager _roomManager;
 
         public RoomController(
-            ILogger<GuestController> logger,
+            ILogger<RoomController> logger,
             IRoomManager roomManager)
         {
             _logger = logger;
