@@ -1,4 +1,5 @@
-﻿using Domain.Room.Exceptions;
+﻿using Domain.Guest.Enums;
+using Domain.Room.Exceptions;
 using Domain.Room.Ports;
 using Domain.Room.ValueObjects;
 
@@ -16,7 +17,7 @@ namespace Domain.Entities
         {
             get
             {
-                if (InMaintenance || HasGuest)
+                if (this.InMaintenance || this.HasGuest)
                 {
                     return false;
                 }
@@ -28,8 +29,16 @@ namespace Domain.Entities
         {
             get
             {
-                return true;
-            }
+                var notAvaliableStatus = new List<Status>()
+                {
+                    Status.Created,
+                    Status.Paid
+                };
+
+                return this.Bookings.Where(
+                    b => b.Room.Id == this.Id &&
+                    notAvaliableStatus.Contains(b.Status)).Count() > 0;
+            } 
         }
 
         public bool IsValid()

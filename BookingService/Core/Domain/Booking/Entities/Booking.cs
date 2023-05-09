@@ -2,6 +2,7 @@
 using Domain.Booking.Exceptions;
 using Domain.Booking.Ports;
 using Domain.Guest.Enums;
+using Domain.Room.Exceptions;
 using Action = Domain.Guest.Enums.Action;
 
 namespace Domain.Entities
@@ -21,8 +22,7 @@ namespace Domain.Entities
         public DateTime End { get; set; }
         public Room Room { get; set; }
         public Guest Guest { get; set; }
-        private Status Status { get; set; }
-        public Status CurrentStatus { get { return Status; } }
+        public Status Status { get; set; }
 
         public void ChangeState(Action action)
         {
@@ -77,8 +77,12 @@ namespace Domain.Entities
                 throw new GuestRequiredException();
             }
 
-            this.Room.IsValid();
             this.Guest.IsValid();
+
+            if (!this.Room.CanBeBooked())
+            {
+                throw new RoomCannotBeBookedException();
+            }
         }
 
         public async Task Save(IBookingRepository bookingRepository)

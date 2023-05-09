@@ -16,7 +16,7 @@ namespace Application.Booking.DTO
         public DateTime End { get; set; }
         public int RoomId { get; set; }
         public int GuestId { get; set; }
-        private Status Status { get; set; }
+        public Status Status { get; set; }
 
         public static Entities.Booking MapToEntity(BookingDTO dto)
         {
