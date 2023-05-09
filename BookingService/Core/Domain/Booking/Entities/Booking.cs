@@ -9,7 +9,6 @@ namespace Domain.Entities
 {
     public class Booking
     {
-
         public Booking()
         {
             Status = Status.Created;
