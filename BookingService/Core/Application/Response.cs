@@ -24,7 +24,10 @@ namespace Application
         BOOKING_INVALID_PERSON_ID,
         BOOKING_MISSING_REQUIRED_INFORMATION,
         BOOKING_INVALID_EMAIL,
-        BOOKING_ROOM_CANNOT_BE_BOOKED
+        BOOKING_ROOM_CANNOT_BE_BOOKED,
+
+        // Payment
+        PAYMENT_INVALID_PEYMENT_INTENTION = 500
     }
     public abstract class Response
     {
