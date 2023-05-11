@@ -2,7 +2,7 @@ using Application;
 using Application.Guest;
 using Application.Guest.DTO;
 using Application.Guest.Requests;
-using Domain.Guest.Entities;
+using Domain.Entities;
 using Domain.Guest.Enums;
 using Domain.Guest.Ports;
 using Moq;
@@ -199,7 +199,7 @@ namespace AdaptersTests
             {
                 Id = 333,
                 Name = "Test",
-                DocumentId = new Domain.ValueObjects.PersonId
+                DocumentId = new Domain.Guest.ValueObjects.PersonId
                 {
                     DocumentType = DocumentType.DriveLicence,
                     IdNumber = "123"

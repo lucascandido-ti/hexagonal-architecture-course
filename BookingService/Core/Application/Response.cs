@@ -27,7 +27,8 @@ namespace Application
         BOOKING_ROOM_CANNOT_BE_BOOKED,
 
         // Payment
-        PAYMENT_INVALID_PEYMENT_INTENTION = 500
+        PAYMENT_INVALID_PAYMENT_INTENTION = 500,
+        PAYMENT_PROVIDER_NOT_IMPLEMENTED = 501
     }
     public abstract class Response
     {

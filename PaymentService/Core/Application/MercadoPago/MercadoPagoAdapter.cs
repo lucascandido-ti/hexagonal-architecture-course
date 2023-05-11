@@ -6,9 +6,9 @@ using Application.Payment.Responses;
 
 namespace Application.MercadoPago
 {
-    public class MercadoPagoAdapter : IMercadoPagoPaymentService
+    public class MercadoPagoAdapter : IPaymentProcessor
     {
-        public Task<PaymentResponse> PayWithCreditCard(string paymentIntention)
+        public Task<PaymentResponse> CapturePayment(string paymentIntention)
         {
             try
             {
@@ -17,7 +17,7 @@ namespace Application.MercadoPago
                     throw new InvalidPaymentIntentionException();
                 }
 
-                paymentIntention = "/success";
+                paymentIntention += "/success";
 
                 var dto = new PaymentStateDTO
                 {
@@ -38,24 +38,14 @@ namespace Application.MercadoPago
             }
             catch (InvalidPaymentIntentionException)
             {
-                var response = new PaymentResponse
+                var resp = new PaymentResponse()
                 {
                     Success = false,
-                    ErrorCode = ErrorCodes.PAYMENT_INVALID_PEYMENT_INTENTION
+                    ErrorCode = ErrorCodes.PAYMENT_INVALID_PAYMENT_INTENTION,
+                    Message = "The selected payment intention is invalid"
                 };
-
-                return Task.FromResult(response);
+                return Task.FromResult(resp);
             }
-        }
-
-        public Task<PaymentResponse> PayWithDebitCard(string paymentIntention)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PaymentResponse> PayWithTransfer(string paymentIntention)
-        {
-            throw new NotImplementedException();
         }
     }
 }
