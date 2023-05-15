@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Payment\Requests\" />
+    <Folder Include="Room\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

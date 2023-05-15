@@ -1,8 +1,8 @@
 ﻿using Application.Room.DTO;
 using Application;
-using Application.Room.Ports;
 using Microsoft.AspNetCore.Mvc;
-using Application.Room.Requests;
+using MediatR;
+using Application.Room.Commands;
 
 namespace API.Controllers
 {
@@ -11,25 +11,26 @@ namespace API.Controllers
     public class RoomController: ControllerBase
     {
         private readonly ILogger<RoomController> _logger;
-        private readonly IRoomManager _roomManager;
+        private readonly IMediator _mediator;
 
         public RoomController(
             ILogger<RoomController> logger,
-            IRoomManager roomManager)
+            IMediator mediator
+        )
         {
             _logger = logger;
-            _roomManager = roomManager;
+            _mediator = mediator;
         }
 
         [HttpPost]
         public async Task<ActionResult<RoomDTO>> Post(RoomDTO room)
         {
-            var request = new CreateRoomRequest
+            var command = new CreateRoomCommand
             {
-                Data = room
+                roomDTO = room
             };
 
-            var res = await _roomManager.CreateRoom(request);
+            var res = await _mediator.Send(command);
 
             if (res.Success) return Created("", res.Data);
 

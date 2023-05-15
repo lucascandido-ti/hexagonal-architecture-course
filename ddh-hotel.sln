@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsApplication", "Paym
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{10FA0F2C-8859-4053-B7DB-3742DC269A8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.UnitTests", "PaymentService\Tests\Payments.UnitTests\Payments.UnitTests.csproj", "{DB32E095-F548-4FB1-AC25-D3DB8ADBB735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.UnitTests", "PaymentService\Tests\Payments.UnitTests\Payments.UnitTests.csproj", "{DB32E095-F548-4FB1-AC25-D3DB8ADBB735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
