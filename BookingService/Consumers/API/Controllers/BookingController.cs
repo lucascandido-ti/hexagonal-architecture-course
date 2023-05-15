@@ -1,9 +1,11 @@
 ﻿using Application;
+using Application.Booking.Commands;
 using Application.Booking.DTO;
 using Application.Booking.Ports;
-using Application.Booking.Requests;
+using Application.Booking.Queries;
 using Application.Payment.DTO;
 using Application.Payment.Responses;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -14,12 +16,15 @@ namespace API.Controllers
     {
         private readonly ILogger<BookingController> _logger;
         private readonly IBookingManager _bookingManager;
+        private readonly IMediator _mediator;
         public BookingController(
             IBookingManager bookingManager,
-            ILogger<BookingController> logger)
+            ILogger<BookingController> logger,
+            IMediator mediator)
         {
             _bookingManager = bookingManager;
             _logger = logger;
+            _mediator = mediator;
         }
 
         [HttpPost]
@@ -38,13 +43,12 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<BookingDTO>> Post(BookingDTO booking)
         {
-
-            var request = new CreateBookingRequest
+            var command = new CreateBookingCommand
             {
-                Data = booking
+                bookingDTO = booking
             };
 
-            var res = await _bookingManager.CreateBooking(request);
+            var res = await _mediator.Send(command);
 
             if (res.Success) return Created("", res.Data);
 
@@ -57,6 +61,21 @@ namespace API.Controllers
                 return BadRequest(res);
             }
             _logger.LogError("Response with unknown ErrorCode Returned", res);
+            return BadRequest(500);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<BookingDTO>> Get(int id)
+        {
+            var query = new GetBookingQuery{
+                Id = id
+            };
+
+            var res = await _mediator.Send(query);
+
+            if (res.Success) return Created("", res.Data);
+
+            _logger.LogError("Could not process the request", res);
             return BadRequest(500);
         }
     }

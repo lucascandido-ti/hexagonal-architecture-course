@@ -35,7 +35,7 @@ namespace Domain.Entities
                     Status.Paid
                 };
 
-                return this.Bookings.Where(
+                return this.Bookings?.Where(
                     b => b.Room.Id == this.Id &&
                     notAvaliableStatus.Contains(b.Status)).Count() > 0;
             } 

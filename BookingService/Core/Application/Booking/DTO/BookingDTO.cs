@@ -1,5 +1,6 @@
 ﻿using Entities = Domain.Entities;
 using Domain.Guest.Enums;
+using Domain.Entities;
 
 namespace Application.Booking.DTO
 {
@@ -27,6 +28,20 @@ namespace Application.Booking.DTO
                 Guest = new Entities.Guest { Id = dto.GuestId },
                 Room = new Entities.Room { Id = dto.RoomId },
                 End = dto.End
+            };
+        }
+
+        public static BookingDTO MapToDTO(Entities.Booking booking)
+        {
+            return new BookingDTO
+            {
+                Id = booking.Id,
+                End = booking.End,
+                GuestId = booking.Guest.Id,
+                RoomId = booking.Room.Id,
+                Status = booking.Status,
+                PlacedAt = booking.PlacedAt,
+                Start = booking.Start,
             };
         }
     }

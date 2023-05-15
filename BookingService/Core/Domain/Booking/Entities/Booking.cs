@@ -75,20 +75,19 @@ namespace Domain.Entities
             {
                 throw new GuestRequiredException();
             }
+        }
 
+        public async Task Save(IBookingRepository bookingRepository)
+        {
+            this.ValidateState();
             this.Guest.IsValid();
 
             if (!this.Room.CanBeBooked())
             {
                 throw new RoomCannotBeBookedException();
             }
-        }
 
-        public async Task Save(IBookingRepository bookingRepository)
-        {
-            this.ValidateState();
-
-            if(this.Id == 0) {
+            if (this.Id == 0) {
                 var resp = await bookingRepository.CreateBooking(this);
                 this.Id = resp.Id;
             }

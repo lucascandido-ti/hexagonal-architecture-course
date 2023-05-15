@@ -97,13 +97,13 @@ namespace Application.Booking
                     Message = "Guest is a required information"
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new BookingResponse
                 {
                     Success = false,
                     ErrorCode = ErrorCodes.BOOKING_COULD_NOT_STORE_DATA,
-                    Message = "There was an error when saving to DB"
+                    Message = ex.Message
                 };
             }
 
