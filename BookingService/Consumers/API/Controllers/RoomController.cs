@@ -3,6 +3,8 @@ using Application;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using Application.Room.Commands;
+using Application.Booking.Queries;
+using Application.Room.Queries;
 
 namespace API.Controllers
 {
@@ -44,6 +46,22 @@ namespace API.Controllers
             }
 
             _logger.LogError("Response with unknown ErrorCode Returned", res);
+            return BadRequest(500);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<RoomDTO>> Get(int roomId)
+        {
+            var query = new GetRoomQuery
+            {
+                Id = roomId
+            };
+
+            var res = await _mediator.Send(query);
+
+            if (res.Success) return Created("", res.Data);
+
+            _logger.LogError("Could not process the request", res);
             return BadRequest(500);
         }
     }

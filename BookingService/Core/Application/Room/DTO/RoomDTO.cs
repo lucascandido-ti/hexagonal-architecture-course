@@ -25,7 +25,7 @@ namespace Application.Room.DTO
             };
         }
 
-        public static RoomDTO MapToDto(Entities.Room room)
+        public static RoomDTO MapToDTO(Entities.Room room)
         {
             return new RoomDTO
             {
